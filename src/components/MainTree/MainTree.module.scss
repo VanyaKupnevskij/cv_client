@@ -1,39 +1,42 @@
 .root {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 95vw;
+  height: 95vh;
   overflow: hidden;
 
-  background-color: #F7F8FA;
+  background-color: #EAEBF0;
   color: #7E85A0;
+
+  border-radius: 5px;
+  box-shadow: 10px 10px 12px 0px #E0E3EA;
 }
 
 .tree {
   position: absolute;
-  width: fit-content;
-  height: fit-content;
+  width: 100%;
+  height: 100%;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   padding: 1rem;
   
-  background-color: #EAEBF0;
-
-  border-radius: 5px;
-  box-shadow: 10px 10px 12px 0px #E0E3EA;
-
   .node_main,
   .node_child {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3em;
-    height: 3em;
+    width: 1.5em;
+    height: 1.5em;
     margin: 1em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     border-radius: 50%;
     border: 1px solid #325E7C;
 
+    font-size: max(1rem, 2vw);
     text-align: center;
     background-color: #F7F8FA;
     box-shadow: 10px 10px 22px 0px #c5c9d4, 
@@ -42,30 +45,67 @@
 
     cursor: pointer;
 
-    transition: all 0.4s;   
-    
-    &:hover {
-      transform: scale(1.1);
-    }
+    transition: all 0.4s; 
   }
 
   .node_main {
-    width: 10rem;
-    height: 10rem;
+    width: 8em;
+    height: 8em;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
 
     border: 2px solid #325E7C;
 
-
-    font-size: 2rem;
     font-family: 'Roboto Mono', monospace;
     font-weight: 200;
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
   }
 
   .node_child {
-    padding: 1.5em;
+    padding: 1em;    
 
     img {
       width: inherit;
     }
+
+    &:nth-child(2) {
+      left: 30%;
+      top: 35%;
+      // transform: translate(-300%, -150%);
+    }
+    &:nth-child(3) {
+      left: 35%;
+      top: 60%;
+      // transform: translate(-250%, 25%);
+    }
+    &:nth-child(4) {
+      left: 45%;
+      top: 80%;
+      // transform: translate(-150%, 200%);
+    }
+    &:nth-child(5) {
+      left: 60%;
+      top: 80%;
+      // transform: translate(100%, 200%);
+    }
+    &:nth-child(6) {
+      left: 65%;
+      top: 60%;
+      // transform: translate(200%, 25%);
+    }
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
   }
+
+  // @for $i from 2 through 6 {
+  //   & > *:nth-child(#{$i}) {
+  //     left: #{($i - 2) * 120}px;
+  //   }
+  // }
 }
